@@ -23,6 +23,10 @@ const order = {
 deliveryFee: 2.50,
 total: 24.40,
 paymentMethod: 'Tarjeta',
+isDelivery: true,
+address: 'Calle Uría, 25',
+postalCode: '33003',
+deliveryInstructions: 'Llamar al telefonillo al llegar',
 }
 </script>
 
@@ -38,6 +42,10 @@ paymentMethod: 'Tarjeta',
   :delivery-fee="order.deliveryFee"
   :total="order.total"
   :payment-method="order.paymentMethod"
+:is-delivery="order.isDelivery"
+:address="order.address"
+:postal-code="order.postalCode"
+:delivery-instructions="order.deliveryInstructions"
 />
   </main>
 </template>
