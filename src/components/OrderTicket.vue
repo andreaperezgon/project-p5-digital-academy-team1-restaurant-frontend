@@ -35,6 +35,18 @@ defineProps({
   type: Boolean,
   required: true,
 },
+address: {
+  type: String,
+  required: true,
+},
+postalCode: {
+  type: String,
+  required: true,
+},
+deliveryInstructions: {
+  type: String,
+  required: true,
+},
 })
 </script>
 
@@ -84,5 +96,11 @@ defineProps({
       :total="total"
       :payment-method="paymentMethod"
     />
+    <DeliveryDestination
+  v-if="isDelivery"
+  :address="address"
+  :postal-code="postalCode"
+  :delivery-instructions="deliveryInstructions"
+/>
   </section>
 </template>
