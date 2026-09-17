@@ -1,5 +1,6 @@
 <script setup>
 import OrderSummary from './OrderSummary.vue'
+import DeliveryDestination from './DeliveryDestination.vue'
 
 defineProps({
   orderNumber: {
@@ -30,6 +31,10 @@ defineProps({
     type: String,
     required: true,
   },
+  isDelivery: {
+  type: Boolean,
+  required: true,
+},
 })
 </script>
 
