@@ -69,4 +69,30 @@ describe('OrderTicket', () => {
     expect(wrapper.text()).not.toContain('Destino de entrega')
     expect(wrapper.text()).not.toContain('Calle Uría, 25')
   })
+  it('renders correctly when the order has no items', () => {
+  const wrapper = mount(OrderTicket, {
+    props: {
+      ...baseProps,
+      items: [],
+      isDelivery: false,
+    },
+  })
+
+  expect(wrapper.text()).toContain('GS-2026-00125')
+  expect(wrapper.text()).not.toContain('Pull Nigiri')
+  expect(wrapper.text()).not.toContain('Merge Maki')
+})
+it('renders zero delivery fee correctly', () => {
+  const wrapper = mount(OrderTicket, {
+    props: {
+      ...baseProps,
+      deliveryFee: 0,
+      total: 21.9,
+      isDelivery: false,
+    },
+  })
+
+  expect(wrapper.text()).toContain('Gastos de entrega')
+  expect(wrapper.text()).toContain('0 €')
+})
 })
