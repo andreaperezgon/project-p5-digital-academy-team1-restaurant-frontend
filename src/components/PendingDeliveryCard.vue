@@ -20,6 +20,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  disabled: {
+  type: Boolean,
+  default: false,
+},
 })
 
 const emit = defineEmits(['assign'])
@@ -40,8 +44,7 @@ const emit = defineEmits(['assign'])
     <button
       type="button"
       class="pending-delivery-card__button"
-      :disabled="!canAssign || isAssigning"
-      :aria-label="`Asignarme pedido ${orderNumber}`"
+      :disabled="!canAssign || disabled || isAssigning"      :aria-label="`Asignarme pedido ${orderNumber}`"
       @click="emit('assign', orderId)"
     >
       {{ isAssigning ? 'Asignando…' : 'Asignarme pedido' }}
