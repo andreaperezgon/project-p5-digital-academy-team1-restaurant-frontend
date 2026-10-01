@@ -194,4 +194,23 @@ it('deja de consultar al salir de la vista', async () => {
     vi.useRealTimers()
   }
 })
+it('informa de que la asignación todavía no está disponible', async () => {
+  getDeliveryMetrics.mockResolvedValue(metrics)
+
+  const wrapper = mount(RepartoView)
+
+  try {
+    await flushPromises()
+
+    expect(wrapper.text()).toContain('Pendientes de asignar')
+    expect(wrapper.text()).toContain(
+      'La consulta y asignación de pedidos estarán disponibles próximamente.'
+    )
+    expect(
+      wrapper.find('button[aria-label^="Asignarme pedido"]').exists()
+    ).toBe(false)
+  } finally {
+    wrapper.unmount()
+  }
+})
 })

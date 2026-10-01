@@ -1,6 +1,7 @@
 <script setup>
 import DeliveryMetrics from '../components/DeliveryMetrics.vue'
 import { useDeliveryMetrics } from '../composables/useDeliveryMetrics'
+import PendingDeliveryList from '../components/PendingDeliveryList.vue'
 
 const {
   metrics,
@@ -49,6 +50,7 @@ const {
         No hay pedidos listos, en tránsito ni entregados hoy.
       </p>
     </template>
+  <PendingDeliveryList />
   </main>
 </template>
 
